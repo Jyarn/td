@@ -4,7 +4,7 @@ CFLAGS=-fsanitize=address -g -Wall -Wextra -Wpedantic
 EXE=fm
 
 HEAD=all.h
-SRC=main.c
+SRC=main.c display.c
 
 .PHONY: clean build
 
