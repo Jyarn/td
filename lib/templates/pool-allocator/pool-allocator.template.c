@@ -22,7 +22,7 @@ typedef struct MANGLE_STRUCT(Pool)
 typedef MANGLE_STRUCT(Pool) Pool;
 
 Pool *
-MANGLE_STRUCT(manage)(void *buffer, i64 buffer_len)
+MANGLE_FUNCTION(manage)(void *buffer, i64 buffer_len)
 {
     assert(buffer);
     assert(buffer_len > sizeof(Pool) && "buffer size not big enough to fit Pool metadata.");

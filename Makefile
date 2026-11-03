@@ -1,12 +1,12 @@
 CC=gcc
 LFLAGS=-lasan
 CFLAGS=-fsanitize=address -g -Wall -Wextra -Wpedantic
-EXE=fm
+EXE=td
 
 HEAD=all.h
-SRC=main.c display.c
+SRC=main.c display.c items.c templates/item-pool.c
 
-.PHONY: clean build
+.PHONY: clean build metagen
 
 build: $(EXE)
 
@@ -22,5 +22,9 @@ $(EXE): $(addsuffix .o, $(addprefix bin/, $(basename $(SRC)))) $(wildcard shader
 bin/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
+metagen:
+	./lib/templates/pool-allocator/import.sh --output src/templates --struct-prefix Item --func-prefix item_pool --elem-type Item --file-name item-pool
+
 clean:
-	rm $(EXE) bin/*
+	-rm $(EXE) bin/*
+	-rm bin/templates/*

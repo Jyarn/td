@@ -23,7 +23,7 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
-        -n|file-name)
+        -n|--file-name)
             FILE_NAME="$2"
             shift
             shift
@@ -36,19 +36,19 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -z ${OUTPUT_PATH} ]; then
-    echo "Output path undefined."
+    echo "Output path undefined (-o | --output)."
     exit -1
 elif [ -z ${STRUCT_PREFIX} ]; then
-    echo "Struct prefix not set."
+    echo "Struct prefix not set (-s | --struct-prefix)."
     exit -1
 elif [ -z ${FUNC_PREFIX} ]; then
-    echo "Function prefix not set."
+    echo "Function prefix not set (-f | --func-prefix)."
     exit -1
 elif [ -z ${ELEM_TYPE} ]; then
-    echo "Element type not set."
+    echo "Element type not set (-t | --elem-type)."
     exit -1
 elif [ -z ${FILE_NAME} ]; then
-    echo "File name (prefix) not set."
+    echo "File name (prefix) not set (-n | --file-name)."
     exit -1
 fi
 

@@ -40,7 +40,7 @@ display_init(void)
 }
 
 void
-display_string(const char *str, i32 line_no)
+display_string(ConstString *str, i32 line_no)
 {
     assert(line_no >= 0);
     if (line_no >= window_height)
@@ -48,7 +48,7 @@ display_string(const char *str, i32 line_no)
 
     printf("\x1b[%d;1H", line_no);
     printf("\x1b[0K");
-    printf("%.*s", strlen(str), str);
+    printf("%.*s", str->len, str->data);
     printf("\x1b[H");
     fflush(stdout);
 }

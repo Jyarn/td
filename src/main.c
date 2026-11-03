@@ -5,10 +5,8 @@
 int
 main(void)
 {
+    items_init();
     display_init();
-    display_string("hewowowo", 5);
-    display_string("HEWOWO", 5);
-    display_string("PHWINCESSS!!!", 6);
     sleep(5);
     display_destroy();
 }
